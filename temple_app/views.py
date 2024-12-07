@@ -7,6 +7,8 @@ def index(request):
     festival = ['Festival A', 'Festival B', 'Festival C']
     return render(request=request, template_name='temple/index.html', context={'data':festival})
 
+def about(request):return render(request=request, template_name='temple/about.html')
+
 # def add_event(request):
 #     if request.method == 'POST':
 #         form = EventForm(request.POST)
