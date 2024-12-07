@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to [Temple Name]!">
+    <meta name="author" content="Shyam Prasad">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}[Temple Name]{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>[Temple Name]</h1>
+        <nav>
+            <a>Home</a>
+            <a>About Us</a>
+            <a>Events</a>
+            <a>Services</a>
+            <a>Contact</a>
+        </nav>
+        <a href="{% url 'temple_admin:temple_admin' %}" class="admin-button">Admin Login</a>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Dynamic content goes here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 [Temple Name]. All Rights Reserved.</p>
+        <p>Visit us at: <a href="#">www.templename.com</a> | Contact: (123) 456-7890</p>
+    </footer>
+</body>
+
+</html>
