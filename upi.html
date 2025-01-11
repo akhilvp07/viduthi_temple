@@ -137,22 +137,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
-<<<<<<< Updated upstream
 </html>
-<script>
-    document.getElementById('customAmount').addEventListener('input', function () {
-        const amount = this.value; // Get the entered custom amount
-        const customLink = document.getElementById('customAmountLink');
-        
-        if (amount > 0) { // Ensure a valid positive amount
-            customLink.href = `upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=${amount}&cu=INR`;
-            customLink.classList.remove('disabled'); // Enable the button
-        } else {
-            customLink.href = '#';
-            customLink.classList.add('disabled'); // Disable the button
-        }
-    });
-</script>
-=======
-</html>
->>>>>>> Stashed changes
