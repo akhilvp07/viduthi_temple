@@ -172,7 +172,6 @@ footer a:hover {
 }
 
 .lead.mb-4 {
-
-    font-family: monospace;
-    font-style: italic
+    font-family: cursive; /* Use a generic cursive font */
+    font-style: italic; /* Makes the font italic */
 }
