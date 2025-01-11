@@ -167,4 +167,12 @@ footer a:hover {
     display: block;
 }
 
-  
+.lead {
+    font-size: large;
+}
+
+.lead.mb-4 {
+
+    font-family: monospace;
+    font-style: italic
+}
