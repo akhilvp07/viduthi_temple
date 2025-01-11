@@ -11,12 +11,44 @@
     <!-- Cache-busted CSS -->
     <link href="static/css/style.css?v=1.0.1" rel="stylesheet">
     
-    <!-- Inline styles to override external styles -->
+    <!-- Inline styles -->
     <style>
         .contact-divider {
             border-left: 2px solid #ccc !important;
             height: 100% !important;
-            display: block !important;            /* Ensure it's not hidden */
+            display: block !important;
+        }
+        /* Default: Hide both QR Code and UPI instructions */
+        .qr-code,
+        .upi-instructions {
+            display: none;
+        }
+
+        /* Show UPI instructions for touch-based devices (mobile and tablets) */
+        @media (hover: none) and (pointer: coarse) {
+            .upi-instructions {
+                display: block;
+            }
+        }
+
+        /* Show QR Code for devices with fine pointers (laptops/desktops) */
+        @media (hover: hover) and (pointer: fine) {
+            .qr-code {
+                display: block;
+            }
+        }
+
+        /* Additional fallback for screen size detection (optional) */
+        @media (max-width: 767px) {
+            .upi-instructions {
+                display: block;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .qr-code {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -69,28 +101,31 @@
             <!-- UPI Payment Section -->
             <div class="col-md-6">
                 <h4>Pay via UPI</h4>
-                <p>Select a predefined amount or enter a custom amount:</p>
 
-                <!-- Predefined Amount Buttons -->
-                <div class="d-flex justify-content gap-3 mb-3">
-                    <a href="upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=100&cu=INR" class="btn btn-outline-primary">₹100</a>
-                    <a href="upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=500&cu=INR" class="btn btn-outline-primary">₹500</a>
-                    <a href="upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=1000&cu=INR" class="btn btn-outline-primary">₹1000</a>
+                <!-- UPI Instructions for Mobile -->
+                <div class="upi-instructions">
+                    <p>Select a predefined amount or enter a custom amount:</p>
+                
+                    <!-- Predefined Amount Buttons -->
+                    <div class="d-flex justify-content gap-3 mb-3">
+                        <a href="upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=100&cu=INR" class="btn btn-outline-primary">₹100</a>
+                        <a href="upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=500&cu=INR" class="btn btn-outline-primary">₹500</a>
+                        <a href="upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=1000&cu=INR" class="btn btn-outline-primary">₹1000</a>
+                    </div>
+                
+                    <!-- Custom Amount Input -->
+                    <p>For a custom amount:</p>
+                    <div class="d-flex gap-2">
+                        <input type="number" id="customAmount" class="form-control" placeholder="Enter amount" min="1" required>
+                        <a id="customAmountLink" href="#" class="btn btn-outline-primary">Pay</a>
+                    </div>
                 </div>
 
-                <!-- Custom Amount Instructions -->
-                <p>For a custom amount:</p>
-                <ul>
-                    <li>Open your UPI app (Google Pay, PhonePe, etc.).</li>
-                    <li>Enter the following UPI ID: <strong>temple@upi</strong></li>
-                    <li>Enter your desired amount.</li>
-                    <li>Add a note, if required (e.g., "Donation to Ulakudaya Perumal Temple").</li>
-                    <li>Confirm and complete the payment.</li>
-                </ul>
-
-                <!-- QR Code -->
-                <p>Alternatively, scan the QR code below:</p>
-                <img src="static/images/upi-qrcode.png?v=1.0.1" alt="UPI QR Code" class="img-fluid mb-3" style="max-width: 300px;">
+                <!-- QR Code for Desktop -->
+                <div class="qr-code">
+                    <p>Alternatively, scan the QR code below:</p>
+                    <img src="static/images/upi-qrcode.png?v=1.0.1" alt="UPI QR Code" class="img-fluid mb-3" style="max-width: 300px;">
+                </div>
             </div>
         </div>
         <p class="text-center mt-4">
@@ -110,3 +145,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+<script>
+    document.getElementById('customAmount').addEventListener('input', function () {
+        const amount = this.value; // Get the entered custom amount
+        const customLink = document.getElementById('customAmountLink');
+        
+        if (amount > 0) { // Ensure a valid positive amount
+            customLink.href = `upi://pay?pa=temple@upi&pn=Ulakudaya Perumal Temple&am=${amount}&cu=INR`;
+            customLink.classList.remove('disabled'); // Enable the button
+        } else {
+            customLink.href = '#';
+            customLink.classList.add('disabled'); // Disable the button
+        }
+    });
+</script>
