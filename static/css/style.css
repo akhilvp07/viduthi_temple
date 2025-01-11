@@ -179,3 +179,18 @@ footer a:hover {
     height: 100%;
     display: block !important;            /* Ensure it's not hidden */
 }
+
+.transparent-btn {
+    background-color: transparent;
+    border: 2px solid #ffff; /* Green border, change color as needed */
+    color: white;
+    text-decoration: none; /* Optional: Removes underline */
+    padding: 0.375rem 0.75rem; /* Padding for better appearance */
+    border-radius: 0.7rem; /* Rounded edges */
+    transition: background-color 0.2s, color 0.7s; /* Smooth hover effect */
+}
+
+.transparent-btn:hover {
+    background-color: rgba(237, 242, 242, 0.3); /* Light gray with increased opacity */
+    color: black; /* Change text color to black */
+}
