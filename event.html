@@ -11,17 +11,33 @@
     <link href="static/css/style.css?v=1.0.1" rel="stylesheet">
     <style>
         .row {
-            display: block !important;            /* Ensure it's not hidden */
+            display: block !important;
+        }
+
+        /* Fallback for WebP support using @supports */
+        .header-background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        @supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TCEAAAAvAAAAHEpIQkAASAAAAAAAAAAAAPbWcyc=")) {
+            .header-background {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.1');
+            }
         }
     </style>
-
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo" width="50" height="50">
+                <picture>
+                    <source srcset="static/images/logo/logo.webp?v=1.0.1" type="image/webp">
+                    <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo" width="50" height="50">
+                </picture>
                 Ulakudaya Perumal Temple
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -40,7 +56,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="bg-light text-center py-5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1'); background-size: cover; background-position: center; color: white;">
+    <header class="bg-light text-center py-5 header-background">
         <div class="container">
             <h1 class="display-4">Events</h1>
         </div>
@@ -52,7 +68,10 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="card">
-                    <img src="static/images/events/event1.jpg?v=1.0.1" class="card-img-top" alt="Event 1">
+                    <picture>
+                        <source srcset="static/images/events/event1.webp?v=1.0.1" type="image/webp">
+                        <img src="static/images/events/event1.jpg?v=1.0.1" class="card-img-top" alt="Annual Temple Festival">
+                    </picture>
                     <div class="card-body">
                         <h5 class="card-title">Annual Temple Festival</h5>
                         <p class="card-text">Join us for the grand annual festival featuring traditional rituals, cultural performances, and community feasts.</p>
@@ -63,7 +82,10 @@
             </div>
             <div class="col-md-6 mb-4">
                 <div class="card">
-                    <img src="static/images/events/event2.jpg?v=1.0.1" class="card-img-top" alt="Event 2">
+                    <picture>
+                        <source srcset="static/images/events/event2.webp?v=1.0.1" type="image/webp">
+                        <img src="static/images/events/event2.jpg?v=1.0.1" class="card-img-top" alt="Special Pooja Ceremony">
+                    </picture>
                     <div class="card-body">
                         <h5 class="card-title">Special Pooja Ceremony</h5>
                         <p class="card-text">Experience the divine blessings of a special pooja ceremony dedicated to Lord Ulakudaya Perumal.</p>

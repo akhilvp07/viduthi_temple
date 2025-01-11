@@ -11,22 +11,39 @@
     <!-- Cache-busted CSS -->
     <link href="static/css/style.css?v=1.0.2" rel="stylesheet">
     
-    <!-- Inline styles to override external styles -->
     <style>
+        /* Divider Styling */
         .contact-divider {
             border-left: 2px solid #ccc !important;
             height: 100% !important;
-            display: block !important;            /* Ensure it's not hidden */
+            display: block !important;
+        }
+
+        /* Header background fallback */
+        .header-background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        /* Use WebP if supported */
+        @supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TCEAAAAvAAAAHEpIQkAASAAAAAAAAAAAAPbWcyc=")) {
+            .header-background {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.1');
+            }
         }
     </style>
-
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo" width="50" height="50">
+                <picture>
+                    <source srcset="static/images/logo/logo.webp?v=1.0.1" type="image/webp">
+                    <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo" width="50" height="50">
+                </picture>
                 Ulakudaya Perumal Temple
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -45,7 +62,7 @@
     </nav>
 
     <!-- Header -->
-    <header class="bg-light text-center py-5" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1'); background-size: cover; background-position: center; color: white;">
+    <header class="text-center py-5 header-background">
         <div class="container">
             <h1 class="display-4">Contact Us</h1>
         </div>
