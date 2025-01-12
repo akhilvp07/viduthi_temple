@@ -10,26 +10,44 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
     <style>
+        /* Base styles */
+        :root {
+            --primary-color: #dc3545;
+            --secondary-color: #f8f9fa;
+        }
+
+        /* Mobile-first header */
         .header-background {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1');
             background-size: cover;
             background-position: center;
             color: white;
-            height: 400px;
+            min-height: 300px;
+            padding: 2rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        @supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TCEAAAAvAAAAHEpIQkAASAAAAAAAAAAAAPbWcyc=")) {
-            .header-background {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.1');
-            }
+        /* Responsive typography */
+        h1 {
+            font-size: calc(1.8rem + 2vw);
+            line-height: 1.2;
         }
 
+        h2 {
+            font-size: calc(1.5rem + 1vw);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: calc(1.2rem + 0.5vw);
+        }
+
+        /* Mobile-friendly timeline */
         .timeline-container {
             position: relative;
-            padding: 20px 0;
+            padding: 1rem 0;
         }
 
         .timeline-container::after {
@@ -39,15 +57,16 @@
             background-color: #e9ecef;
             top: 0;
             bottom: 0;
-            left: 50%;
+            left: 20px;
             margin-left: -2px;
         }
 
         .timeline-item {
-            padding: 20px 40px;
+            padding: 1rem 1rem 1rem 3rem;
             position: relative;
             background-color: inherit;
-            width: 50%;
+            width: 100%;
+            margin-bottom: 1.5rem;
         }
 
         .timeline-item::after {
@@ -55,40 +74,134 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: #dc3545;
+            background-color: var(--primary-color);
             border: 4px solid #fff;
             border-radius: 50%;
-            top: 50%;
-            right: -10px;
+            top: 1.5rem;
+            left: 10px;
             z-index: 1;
         }
 
         .timeline-item.right {
-            left: 50%;
+            left: 0;
         }
 
         .timeline-item.right::after {
-            left: -10px;
+            left: 10px;
         }
 
+        /* Enhanced cards for mobile */
         .content-card {
             background-color: white;
-            padding: 20px;
+            padding: 1.25rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
         }
 
+        /* Mobile-optimized temple features */
         .temple-feature {
-            border-left: 4px solid #dc3545;
-            padding: 15px;
-            margin: 15px 0;
-            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            background-color: var(--secondary-color);
         }
 
+        .temple-feature ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .temple-feature ul li::before {
+            content: '✤';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Responsive section divider */
         .section-divider {
             height: 4px;
-            background: linear-gradient(90deg, #dc3545 0%, #f8f9fa 100%);
-            margin: 40px 0;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            margin: 2rem 0;
+        }
+
+        /* Enhanced navbar for mobile */
+        .navbar {
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand img {
+            height: 25px;
+        }
+
+        .navbar-toggler {
+            padding: 0.4rem 0.6rem;
+            font-size: 1rem;
+        }
+
+        .navbar-nav {
+            padding: 0.5rem 0;
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+        }
+
+        /* Responsive spacing utilities */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            .py-5 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            .temple-feature {
+                margin: 0.75rem 0;
+            }
+        }
+
+        /* Tablet and larger screens */
+        @media (min-width: 768px) {
+            .timeline-container::after {
+                left: 50%;
+            }
+
+            .timeline-item {
+                width: 50%;
+                padding: 20px 40px;
+            }
+
+            .timeline-item::after {
+                left: auto;
+                right: -10px;
+            }
+
+            .timeline-item.right {
+                left: 50%;
+            }
+
+            .timeline-item.right::after {
+                left: -10px;
+            }
+
+            .header-background {
+                min-height: 400px;
+            }
+        }
+
+        /* Touch-friendly elements */
+        .nav-link, .temple-feature, .content-card {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Improved scroll performance */
+        * {
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
@@ -99,7 +212,7 @@
             <a class="navbar-brand" href="index.html">
                 <picture>
                     <source srcset="static/images/logo/logo.webp?v=1.0.1" type="image/webp">
-                    <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo" height="30">
+                    <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo">
                 </picture>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
@@ -120,7 +233,7 @@
     <!-- Hero Header -->
     <header class="header-background">
         <div class="container text-center">
-            <h1 class="display-3 mb-4" data-aos="fade-up">Ulakudaya Perumal Temple</h1>
+            <h1 class="mb-3" data-aos="fade-up">Ulakudaya Perumal Temple</h1>
             <p class="lead" data-aos="fade-up" data-aos-delay="200">A Sacred Legacy of Devotion and History</p>
         </div>
     </header>
@@ -128,15 +241,11 @@
     <!-- Introduction Section -->
     <section class="py-5">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="content-card" data-aos="fade-up">
-                        <h2 class="text-center mb-4">The Sacred Origins</h2>
-                        <p class="lead text-justify">
-                            The Ulakudaya Perumal Temple, associated with the 'Kuranganthottam' family and the 'Cheruvazha Channanmar', has its roots near the 'Kunnathumala Temple'. This sacred site, known as the <strong>moola sthanam</strong>, lies west of the 'Chengannur Devi Temple' and close to the 'Thiruvandoor' road.
-                        </p>
-                    </div>
-                </div>
+            <div class="content-card" data-aos="fade-up">
+                <h2 class="text-center">The Sacred Origins</h2>
+                <p class="lead">
+                    The Ulakudaya Perumal Temple, associated with the 'Kuranganthottam' family and the 'Cheruvazha Channanmar', has its roots near the 'Kunnathumala Temple'. This sacred site, known as the <strong>moola sthanam</strong>, lies west of the 'Chengannur Devi Temple' and close to the 'Thiruvandoor' road.
+                </p>
             </div>
         </div>
     </section>
@@ -146,27 +255,27 @@
     <!-- Historical Timeline -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Historical Journey</h2>
+            <h2 class="text-center">Historical Journey</h2>
             <div class="timeline-container">
-                <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="content-card">
                         <h3>Ancient Kingdoms</h3>
                         <p>The region was divided between Madhura Rajyam and Vaiga Rajyam, leading to frequent conflicts between the two kingdoms.</p>
                     </div>
                 </div>
-                <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-item right" data-aos="fade-up">
                     <div class="content-card">
                         <h3>The Great Battle</h3>
                         <p>During a significant battle, the Madhura Raja caused extensive damage to the temple at the moola sthanam.</p>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="content-card">
                         <h3>Exile and New Beginnings</h3>
                         <p>Ulakudaya Perumal and his family established new temples across various locations including Chavara, Mullaramkodu, and others.</p>
                     </div>
                 </div>
-                <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-item right" data-aos="fade-up">
                     <div class="content-card">
                         <h3>Vakkom Daivapura</h3>
                         <p>The tragic events at Vakkom Daivapura led to the establishment of the Bhadrakali Temple.</p>
@@ -181,27 +290,27 @@
     <!-- Associated Temples -->
     <section class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Sacred Network of Temples</h2>
+            <h2 class="text-center">Sacred Network of Temples</h2>
             <div class="row">
                 <div class="col-md-6" data-aos="fade-up">
                     <div class="temple-feature">
-                        <h4>Primary Temples</h4>
+                        <h3>Primary Temples</h3>
                         <ul class="list-unstyled">
-                            <li>✤ Valiya Melathil Ayani Vilakam Devi Temple</li>
-                            <li>✤ Muthana Panayil Temple</li>
-                            <li>✤ Perettil Padinjattathil Temple</li>
-                            <li>✤ Kollam Vilakam</li>
+                            <li>Valiya Melathil Ayani Vilakam Devi Temple</li>
+                            <li>Muthana Panayil Temple</li>
+                            <li>Perettil Padinjattathil Temple</li>
+                            <li>Kollam Vilakam</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6" data-aos="fade-up">
                     <div class="temple-feature">
-                        <h4>Associated Shrines</h4>
+                        <h3>Associated Shrines</h3>
                         <ul class="list-unstyled">
-                            <li>✤ Thettikulam Madan Kavu</li>
-                            <li>✤ Pullanikkodu Poykayil</li>
-                            <li>✤ Pillaveedu Annapoorneswari Temple</li>
-                            <li>✤ Karunilakkodu Kuzhivilakom Temple</li>
+                            <li>Thettikulam Madan Kavu</li>
+                            <li>Pullanikkodu Poykayil</li>
+                            <li>Pillaveedu Annapoorneswari Temple</li>
+                            <li>Karunilakkodu Kuzhivilakom Temple</li>
                         </ul>
                     </div>
                 </div>
@@ -214,29 +323,27 @@
     <!-- Spiritual Practices -->
     <section class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Spiritual Traditions</h2>
+            <h2 class="text-center">Spiritual Traditions</h2>
             <div class="row">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="content-card mb-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="content-card">
                         <h3>Temple Rituals</h3>
-                        <p>The temple follows traditional practices including:</p>
-                        <ul>
-                            <li>Regular Ayilya Puja</li>
-                            <li>Uruli Kamizhthal offerings</li>
-                            <li>Thottam Pattu performances</li>
-                            <li>Kalam Pooja ceremonies</li>
+                        <ul class="list-unstyled">
+                            <li>✦ Regular Ayilya Puja</li>
+                            <li>✦ Uruli Kamizhthal offerings</li>
+                            <li>✦ Thottam Pattu performances</li>
+                            <li>✦ Kalam Pooja ceremonies</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="content-card mb-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="content-card">
                         <h3>Sacred Features</h3>
-                        <p>The temple complex includes:</p>
-                        <ul>
-                            <li>Ancient Sarppakavu (serpent grove)</li>
-                            <li>Shrines for Yogeeswaran</li>
-                            <li>Brahmarakshas shrine</li>
-                            <li>Manthramoorthy shrine</li>
+                        <ul class="list-unstyled">
+                            <li>✦ Ancient Sarppakavu (serpent grove)</li>
+                            <li>✦ Shrines for Yogeeswaran</li>
+                            <li>✦ Brahmarakshas shrine</li>
+                            <li>✦ Manthramoorthy shrine</li>
                         </ul>
                     </div>
                 </div>
@@ -245,9 +352,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-4">
+    <footer class="bg-dark text-white text-center py-3">
         <div class="container">
-            <p>&copy; 2025 Ulakudaya Perumal Temple. All Rights Reserved.</p>
+            <p class="mb-0">&copy; 2025 Ulakudaya Perumal Temple. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -257,8 +364,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 800,
+            once: true,
+            disable: 'mobile' // Disable animations on mobile for better performance
         });
     </script>
 </body>
