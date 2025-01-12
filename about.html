@@ -5,24 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Ulakudaya Perumal Temple</title>
     
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Cache-busted CSS -->
     <link href="static/css/style.css?v=1.0.1" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
     <style>
-        /* Header background fallback for browsers without WebP support */
         .header-background {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1');
             background-size: cover;
             background-position: center;
             color: white;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* If WebP is supported, use the WebP version */
         @supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TCEAAAAvAAAAHEpIQkAASAAAAAAAAAAAAPbWcyc=")) {
             .header-background {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.1');
             }
+        }
+
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #e9ecef;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #dc3545;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            top: 50%;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        .content-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .temple-feature {
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+        }
+
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, #dc3545 0%, #f8f9fa 100%);
+            margin: 40px 0;
         }
     </style>
 </head>
@@ -42,7 +108,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="event.html">Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item"><a class="nav-link" href="upi.html">Offerings</a></li>
@@ -51,86 +117,130 @@
         </div>
     </nav>
 
-    <!-- About Section Header -->
-    <header class="text-white text-center py-5 header-background">
-        <div class="container">
-            <h1 class="display-4 mb-4">About Our Temple</h1>
+    <!-- Hero Header -->
+    <header class="header-background">
+        <div class="container text-center">
+            <h1 class="display-3 mb-4" data-aos="fade-up">Ulakudaya Perumal Temple</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="200">A Sacred Legacy of Devotion and History</p>
         </div>
     </header>
 
-    <!-- About Content Section -->
-    <section class="bg-light py-5">
+    <!-- Introduction Section -->
+    <section class="py-5">
         <div class="container">
-            <h2 class="text-center mb-4" style="font-size: 2rem;">The Ulakudaya Perumal Temple and Its Lineage</h2>
-            <p class="lead text-justify">
-                The Ulakudaya Perumal Temple, also known in connection with the 'Kuranganthottam' family and the 'Cheruvazha Channanmar', traces its origins to a site near the 'Kunnathumala Temple', west of the 'Chengannur Devi Temple' and close to the 'Thiruvandoor' road. This original location is considered its <strong>moola sthanam</strong> (primary or root location). The Bhadrakali Temple and 'Nagadeva Sthanam' (abode of the Snake God) at this site are part of a very ancient family lineage.
-            </p>
-            
-            <h3 class="mt-4">Historical Context and Conflict</h3>
-            <p class="lead text-justify">
-                In ancient times, the region was divided into two kingdoms: <strong>Madhura Rajyam</strong> and <strong>Vaiga Rajyam</strong>. Madhura Rajyam was ruled by the Madhura Raja (King), while Vaiga Rajyam was under the rule of Ulakudaya Perumal. Frequent battles occurred between these two kingdoms. The Madhura Raja worshipped Shiva, while Ulakudaya Perumal's deity was Bhadrakali. During one such battle, Ulakudaya Perumal suffered defeat. The Madhura Raja, riding an elephant, caused significant damage to the temple at the <em>moola sthanam</em>, including the walls of the Devi Temple.
-            </p>
-            
-            <h3 class="mt-4">Exile and Establishment of New Temples</h3>
-            <p class="lead text-justify">
-                Following this defeat, Ulakudaya Perumal and his lineage, including his sister and five brothers (<em>Thampurans</em>/Lords), were exiled. As they traveled and settled in different locations, temples were established in their honor. The primary locations where these temples were built include:
-            </p>
-            <ul class="lead text-justify">
-                <li>Chavara</li>
-                <li>Mullaramkodu</li>
-                <li>Pongummoodu</li>
-                <li>Venjaramoodu</li>
-                <li>Mandapakkunnu</li>
-                <li>Vakkom Daivapura</li>
-            </ul>
-            
-            <h4 class="mt-4">The Story at Vakkom Daivapura</h4>
-            <p class="lead text-justify">
-                At Vakkom Daivapura, it is said that the five 'Thampurans' (brothers) were killed in the presence of the 'Maraykkanmar'. Ulakudaya Perumal and his sister then traveled further, crossing the 'Vakkom Irangukadavu', eventually resting at 'Kallinmoodu Kadappuram'. There, a young man named Ulakan married Ulakudaya Perumal's sister, and their descendants became known as the 'Kuranganthottam' family.
-            </p>
-            <p class="lead text-justify">
-                Ulakudaya Perumal, having escaped further conflict with the 'Kadal Maraykkanmar', is said to have thrust his sword into the ground at a specific spot and died. His sister's son later built a temple dedicated to Bhadrakali at this very location, installing her idol.
-            </p>
-            
-            <h3 class="mt-4">Relocation and Later Developments</h3>
-            <p class="lead text-justify">
-                Later, during the reign of Marthanda Varma Maharaja, when the Varkala canal was being constructed, this temple became an obstacle. As a result, the temple was relocated to 'Viduthi Vilakam'. The new temple retained some exquisitely crafted sections from the original structure, including a beautifully carved 'peedam'.
-            </p>
-            <p class="lead text-justify">
-                From this time onwards, a festival known as the <strong>'Bhadrakali Pooja'</strong> and <strong>'Rappada'</strong> has been celebrated. This festival was traditionally led by the Karnavar (elders/heads of the family): Thiruvan, Ulakan, and Kochu Shankaran Asan, a relative of Sree Narayana Guru.
-            </p>
-            
-            <h3 class="mt-4">Associated Temples and Practices</h3>
-            <p class="lead text-justify">
-                The main temples associated with this lineage include:
-            </p>
-            <ul class="lead text-justify">
-                <li>Valiya Melathil Ayani Vilakam Devi Temple</li>
-                <li>Muthana Panayil Temple</li>
-                <li>Perettil Padinjattathil Temple</li>
-                <li>Kollam Vilakam</li>
-                <li>Thettikulam Madan Kavu</li>
-                <li>Pullanikkodu Poykayil</li>
-                <li>Pillaveedu Annapoorneswari Temple</li>
-                <li>Karunilakkodu Kuzhivilakom Temple</li>
-            </ul>
-            <p class="lead text-justify">
-                A unique aspect of these temples is that although they are all connected to Ulakudaya Perumal, only the Viduthi Vilakam Temple has a separate shrine dedicated specifically to him.
-            </p>
-            
-            <h3 class="mt-4">Connection to Sree Narayana Guru and Temple Practices</h3>
-            <p class="lead text-justify">
-                The temple at 'Viduthi Vilakam' was frequently visited by Sree Narayana Guru. His family members, including his father Madan Asan, his younger brothers Kochandi Vaidyan and Kuttiperumal Vaidyan, and their sister Kali, were also associated with this place.
-            </p>
-            <p class="lead text-justify">
-                The temple complex includes an ancient serpent grove (<strong>Sarppakavu</strong>) and shrines for sub-deities such as Yogeeswaran, Brahmarakshas, and Manthramoorthy. The temple, after a period of disrepair, was restored 13 years ago and now follows a <em>Shatadhara Prathishta</em>. Within the 'Chuttambalam', there are shrines for Perumal (Shiva) and Ganapathi. The temple faces west, in reverence to Ganga Devi. According to the temple astrologer, rituals have been performed to remove 'Marutha', 'Brahma Pretham', 'Chathan', 'Pey', and 'Arukola' as per Tantric traditions.
-            </p>
-            <p class="lead text-justify">
-                The <strong>Ayilya Puja</strong> is performed regularly, and the <em>Uruli Kamizhthal</em> is a significant offering. During festivals, <em>Thottam Pattu</em> is performed first, followed by <em>Kalam Pooja</em>, <em>Thampuran Pattu</em>, and <em>Padappurappadu</em>.
-            </p>
-            <p class="lead text-justify">
-                The temple is situated in a beautiful natural setting and is considered a place where devotees' prayers are answered. All temple customs are now conducted according to Tantric practices, whereas in the past, they were overseen by family elders.
-            </p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="content-card" data-aos="fade-up">
+                        <h2 class="text-center mb-4">The Sacred Origins</h2>
+                        <p class="lead text-justify">
+                            The Ulakudaya Perumal Temple, associated with the 'Kuranganthottam' family and the 'Cheruvazha Channanmar', has its roots near the 'Kunnathumala Temple'. This sacred site, known as the <strong>moola sthanam</strong>, lies west of the 'Chengannur Devi Temple' and close to the 'Thiruvandoor' road.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Historical Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Historical Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="content-card">
+                        <h3>Ancient Kingdoms</h3>
+                        <p>The region was divided between Madhura Rajyam and Vaiga Rajyam, leading to frequent conflicts between the two kingdoms.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="content-card">
+                        <h3>The Great Battle</h3>
+                        <p>During a significant battle, the Madhura Raja caused extensive damage to the temple at the moola sthanam.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="content-card">
+                        <h3>Exile and New Beginnings</h3>
+                        <p>Ulakudaya Perumal and his family established new temples across various locations including Chavara, Mullaramkodu, and others.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="content-card">
+                        <h3>Vakkom Daivapura</h3>
+                        <p>The tragic events at Vakkom Daivapura led to the establishment of the Bhadrakali Temple.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Associated Temples -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Sacred Network of Temples</h2>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="temple-feature">
+                        <h4>Primary Temples</h4>
+                        <ul class="list-unstyled">
+                            <li>✤ Valiya Melathil Ayani Vilakam Devi Temple</li>
+                            <li>✤ Muthana Panayil Temple</li>
+                            <li>✤ Perettil Padinjattathil Temple</li>
+                            <li>✤ Kollam Vilakam</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="temple-feature">
+                        <h4>Associated Shrines</h4>
+                        <ul class="list-unstyled">
+                            <li>✤ Thettikulam Madan Kavu</li>
+                            <li>✤ Pullanikkodu Poykayil</li>
+                            <li>✤ Pillaveedu Annapoorneswari Temple</li>
+                            <li>✤ Karunilakkodu Kuzhivilakom Temple</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Spiritual Practices -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Spiritual Traditions</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="content-card mb-4">
+                        <h3>Temple Rituals</h3>
+                        <p>The temple follows traditional practices including:</p>
+                        <ul>
+                            <li>Regular Ayilya Puja</li>
+                            <li>Uruli Kamizhthal offerings</li>
+                            <li>Thottam Pattu performances</li>
+                            <li>Kalam Pooja ceremonies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="content-card mb-4">
+                        <h3>Sacred Features</h3>
+                        <p>The temple complex includes:</p>
+                        <ul>
+                            <li>Ancient Sarppakavu (serpent grove)</li>
+                            <li>Shrines for Yogeeswaran</li>
+                            <li>Brahmarakshas shrine</li>
+                            <li>Manthramoorthy shrine</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -141,8 +251,15 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS and Popper -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>
