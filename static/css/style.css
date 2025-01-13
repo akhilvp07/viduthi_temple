@@ -216,3 +216,20 @@ footer a:hover {
 .nav-link {
     padding: 0.5rem 1rem;
 }
+
+/* Responsive spacing utilities */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .temple-feature {
+        margin: 0.75rem 0;
+    }
+}
