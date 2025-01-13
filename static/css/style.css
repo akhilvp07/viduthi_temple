@@ -233,3 +233,11 @@ footer a:hover {
         margin: 0.75rem 0;
     }
 }
+/* For image sizing in event cards */
+.fixed-size-image {
+    width: 100%; /* Ensures the image fits the card width */
+    height: 200px; /* Fixed height for all images */
+    object-fit: cover; /* Maintains aspect ratio and crops excess */
+    border-top-left-radius: 8px; /* Matches the card's border radius */
+    border-top-right-radius: 8px; /* Matches the card's border radius */
+}
