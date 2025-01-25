@@ -142,36 +142,10 @@
         <h2 class="text-center mb-4">Temple Gallery</h2>
         <div id="templeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
             <!-- Indicators -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
 
             <!-- Carousel Items -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <picture>
-                        <source srcset="static/images/image1.webp?v=1.0.1" type="image/webp">
-                        <source srcset="static/images/image1.webp?v=1.0.1" type="image/webp">
-                        <img src="static/images/image1.png?v=1.0.1" class="d-block w-100" alt="Temple front view during the day" loading="lazy">
-                    </picture>
-                </div>
-                <div class="carousel-item">
-                    <picture>
-                        <source srcset="static/images/image2.webp?v=1.0.1" type="image/webp">
-                        <source srcset="static/images/image2.webp?v=1.0.1" type="image/webp">
-                        <img src="static/images/image2.png?v=1.0.1" class="d-block w-100" alt="Temple side view during sunset" loading="lazy">
-                    </picture>
-                </div>
-                <div class="carousel-item">
-                    <picture>
-                        <source srcset="static/images/image3.webp?v=1.0.1" type="image/webp">
-                        <source srcset="static/images/image3.webp?v=1.0.1" type="image/webp">
-                        <img src="static/images/image3.png?v=1.0.1" class="d-block w-100" alt="Temple during evening lights" loading="lazy">
-                    </picture>
-                </div>
-            </div>
+            <div class="carousel-inner" id="carouselItems"></div>
 
             <!-- Controls -->
             <button class="carousel-control-prev" type="button" data-bs-target="#templeCarousel" data-bs-slide="prev" aria-label="Previous Slide">
@@ -195,5 +169,49 @@
     <!-- Bootstrap JS and Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+    <!-- Dynamic Image Carousel Script -->
+    <script>
+        const imagesPath = "static/images/";
+        const version = "v=1.0.1";
+        const imageFilenames = ["image1.png", "image2.png", "image3.png"];
+        const carouselIndicators = document.getElementById("carouselIndicators");
+        const carouselItems = document.getElementById("carouselItems");
+
+        imageFilenames.forEach((filename, index) => {
+            const baseFilename = filename.split(".")[0];
+
+            // Create indicator
+            const indicator = document.createElement("button");
+            indicator.type = "button";
+            indicator.setAttribute("data-bs-target", "#templeCarousel");
+            indicator.setAttribute("data-bs-slide-to", index.toString());
+            indicator.setAttribute("aria-label", `Slide ${index + 1}`);
+            if (index === 0) indicator.classList.add("active");
+            carouselIndicators.appendChild(indicator);
+
+            // Create carousel item
+            const carouselItem = document.createElement("div");
+            carouselItem.classList.add("carousel-item");
+            if (index === 0) carouselItem.classList.add("active");
+
+            const picture = document.createElement("picture");
+
+            const sourceWebP = document.createElement("source");
+            sourceWebP.srcset = `${imagesPath}${baseFilename}.webp?${version}`;
+            sourceWebP.type = "image/webp";
+            picture.appendChild(sourceWebP);
+
+            const img = document.createElement("img");
+            img.src = `${imagesPath}${filename}?${version}`;
+            img.classList.add("d-block", "w-100");
+            img.alt = `Temple image ${index + 1}`;
+            img.loading = "lazy";
+            picture.appendChild(img);
+
+            carouselItem.appendChild(picture);
+            carouselItems.appendChild(carouselItem);
+        });
+    </script>
 </body>
 </html>
