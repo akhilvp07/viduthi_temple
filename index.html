@@ -5,23 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Ulakudaya Perumal Temple</title>
 
+    <!-- General Meta Tags -->
+    <meta name="description"
+        content="Discover the rich history, sacred origins, and spiritual traditions of the Ulakudaya Perumal Temple." />
+    <meta name="keywords"
+        content="Ulakudaya Perumal Temple, temple history, sacred origins, Ulakudaya Perumal, Sree Narayana Guru, Kerala temples, Viduthi Vilakam Temple, temple rituals" />
+    <meta name="author" content="Ulakudaya Perumal Temple" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home - Ulakudaya Perumal Temple"/>
+    <meta property="og:description"
+        content="Discover the rich history, sacred origins, and spiritual traditions of the Ulakudaya Perumal Temple." />
+    <meta property="og:url" content="https://ulakudayaperumaltemple.org"/>
+    <meta property="og:image" content="https://ulakudayaperumaltemple.org/static/images/header/temple-header.png?v=1.0.1"/>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Ulakudaya Perumal Temple" />
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Cache-busted CSS -->
     <link href="static/css/style.css?v=1.0.1" rel="stylesheet">
     <style>
-        /* Header background fallback for browsers without WebP support */
+        :root {
+            --primary-color: #f8f9fa;
+            --secondary-color: #343a40;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
         .header-background {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.1');
             background-size: cover;
             background-position: center;
+            position: relative;
             color: white;
+            padding: 6rem 0;
         }
 
-        /* If WebP is supported, use the WebP version */
-        @supports (background-image: url("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TCEAAAAvAAAAHEpIQkAASAAAAAAAAAAAAPbWcyc=")) {
+        .navbar {
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand img {
+            max-height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .carousel-item img {
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
             .header-background {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.1');
+                padding: 3rem 0;
+            }
+            .display-1 {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -35,7 +110,7 @@
             <a class="navbar-brand" href="index.html">
                 <picture>
                     <source srcset="static/images/logo/logo.webp?v=1.0.1" type="image/webp">
-                    <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo" height="30">
+                    <img src="static/images/logo/logo.png?v=1.0.1" alt="Temple Logo">
                 </picture>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
@@ -43,11 +118,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="event.html">Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="upi.html">Offerings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
                 </ul>
             </div>
         </div>
@@ -65,38 +140,12 @@
     <!-- Temple Images Section -->
     <section class="container py-5">
         <h2 class="text-center mb-4">Temple Gallery</h2>
-        <div id="templeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="templeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
             <!-- Indicators -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#templeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
 
             <!-- Carousel Items -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <picture>
-                        <source srcset="static/images/image1.webp?v=1.0.1" type="image/webp">
-                        <source srcset="static/images/image1.webp?v=1.0.1" type="image/webp">
-                        <img src="static/images/image1.png?v=1.0.1" class="d-block w-100" alt="Temple front view during the day" loading="lazy">
-                    </picture>
-                </div>
-                <div class="carousel-item">
-                    <picture>
-                        <source srcset="static/images/image2.webp?v=1.0.1" type="image/webp">
-                        <source srcset="static/images/image2.webp?v=1.0.1" type="image/webp">
-                        <img src="static/images/image2.png?v=1.0.1" class="d-block w-100" alt="Temple side view during sunset" loading="lazy">
-                    </picture>
-                </div>
-                <div class="carousel-item">
-                    <picture>
-                        <source srcset="static/images/image3.webp?v=1.0.1" type="image/webp">
-                        <source srcset="static/images/image3.webp?v=1.0.1" type="image/webp">
-                        <img src="static/images/image3.png?v=1.0.1" class="d-block w-100" alt="Temple during evening lights" loading="lazy">
-                    </picture>
-                </div>
-            </div>
+            <div class="carousel-inner" id="carouselItems"></div>
 
             <!-- Controls -->
             <button class="carousel-control-prev" type="button" data-bs-target="#templeCarousel" data-bs-slide="prev" aria-label="Previous Slide">
@@ -120,5 +169,49 @@
     <!-- Bootstrap JS and Popper -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+
+    <!-- Dynamic Image Carousel Script -->
+    <script>
+        const imagesPath = "static/images/";
+        const version = "v=1.0.1";
+        const imageFilenames = ["image_01.webp", "image_07.webp", "image_03.webp", "image_08.webp", "image_06.webp", "image_09.webp", "image_12.webp", "image_13.webp"];
+        const carouselIndicators = document.getElementById("carouselIndicators");
+        const carouselItems = document.getElementById("carouselItems");
+
+        imageFilenames.forEach((filename, index) => {
+            const baseFilename = filename.split(".")[0];
+
+            // Create indicator
+            const indicator = document.createElement("button");
+            indicator.type = "button";
+            indicator.setAttribute("data-bs-target", "#templeCarousel");
+            indicator.setAttribute("data-bs-slide-to", index.toString());
+            indicator.setAttribute("aria-label", `Slide ${index + 1}`);
+            if (index === 0) indicator.classList.add("active");
+            carouselIndicators.appendChild(indicator);
+
+            // Create carousel item
+            const carouselItem = document.createElement("div");
+            carouselItem.classList.add("carousel-item");
+            if (index === 0) carouselItem.classList.add("active");
+
+            const picture = document.createElement("picture");
+
+            const sourceWebP = document.createElement("source");
+            sourceWebP.srcset = `${imagesPath}${baseFilename}.webp?${version}`;
+            sourceWebP.type = "image/webp";
+            picture.appendChild(sourceWebP);
+
+            const img = document.createElement("img");
+            img.src = `${imagesPath}${filename}?${version}`;
+            img.classList.add("d-block", "w-100");
+            img.alt = `Temple image ${index + 1}`;
+            img.loading = "lazy";
+            picture.appendChild(img);
+
+            carouselItem.appendChild(picture);
+            carouselItems.appendChild(carouselItem);
+        });
+    </script>
 </body>
 </html>

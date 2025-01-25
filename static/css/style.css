@@ -47,13 +47,13 @@ main {
 }
 
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    background-color: #333 !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 10px !important;
+    position: relative !important;
+    bottom: 0 !important;
+    width: 100% !important;
 }
 
 footer a {
@@ -193,4 +193,51 @@ footer a:hover {
 .transparent-btn:hover {
     background-color: rgba(237, 242, 242, 0.3); /* Light gray with increased opacity */
     color: black; /* Change text color to black */
+}
+
+/* Enhanced navbar for mobile */
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    height: 25px;
+}
+
+.navbar-toggler {
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+}
+
+.navbar-nav {
+    padding: 0.5rem 0;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+}
+
+/* Responsive spacing utilities */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .temple-feature {
+        margin: 0.75rem 0;
+    }
+}
+/* For image sizing in event cards */
+.fixed-size-image {
+    width: 100%; /* Ensures the image fits the card width */
+    height: 200px; /* Fixed height for all images */
+    object-fit: cover; /* Maintains aspect ratio and crops excess */
+    border-top-left-radius: 8px; /* Matches the card's border radius */
+    border-top-right-radius: 8px; /* Matches the card's border radius */
 }
