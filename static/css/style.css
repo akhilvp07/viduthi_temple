@@ -214,7 +214,19 @@ footer a:hover {
 }
 
 .nav-link {
-    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
 }
 
 /* Responsive spacing utilities */
