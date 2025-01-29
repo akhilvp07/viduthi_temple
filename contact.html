@@ -64,8 +64,16 @@
         .contact-icon {
             color: var(--accent-color);
             margin-right: 10px;
+            margin-top: 3px;
         }
-        
+        .contact-item {
+            display: flex;
+            align-items: flex-start; /* Align icon with the top of the text */
+        }
+
+        .contact-text {
+            flex: 1; /* Ensure the text takes up the remaining space */
+        }
         .temple-administration .admin-grid {
             display: grid;
             gap: 1rem;
@@ -200,13 +208,27 @@
             <!-- Contact Details -->
             <div class="col-md-6">
                 <div class="contact-card h-100">
-                    <h4 class="mb-4">Contact Information</h4>
+                    <h4 class="mb-4">Address</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-3">
+                        <li class="mb-3 contact-item">
                             <i class="fas fa-map-marker-alt contact-icon"></i>
-                            Viduthi Ulakudaya Perumal Temple Trust<br>
-                            Reg. No. IV/13/2004<br>
-                            Nedunganda, Trivandrum, Kerala
+                            <div class="contact-text">
+                                Viduthi Ulakudaya Perumal Temple Trust<br>
+                                Reg. No. IV/13/2004<br>
+                                Nedunganda, Trivandrum, Kerala<br>
+                                Pin: 695307<br>
+                                <br>
+                                <div class="admin-item">
+                                    <div class="admin-role"> Office Secretary</div>
+                                        <div class="admin-details">
+                                            <div class="admin-name">Sathyaseelan</div>
+                                            <div class="admin-contact">
+                                                <i class="fas fa-phone me-2"></i>
+                                                <a href="tel:9847813736" class="admin-phone">8086316286</a>
+                                            </div>
+                                        </div>
+                                </div>    
+                            </div>
                         </li>
                         
                         <!-- <li class="mb-3"><i class="fas fa-phone contact-icon"></i>+91-9876543210</li>
