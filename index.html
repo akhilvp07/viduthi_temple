@@ -37,18 +37,32 @@
             --secondary-color: #343a40;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-
+        /* Updated Header Background Section */
         .header-background {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.2');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.2');
             background-size: cover;
             background-position: center;
             position: relative;
             color: white;
             padding: 6rem 0;
+        }
+
+        @supports not (background-image: url('data:image/webp;base64,UklGRh4AAABXRUJQVlA4TCEAAAAvAAAAHEpIQkAASAAAAAAAAAAAAPbWcyc=')) {
+            .header-background {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.2');
+                /* Re-declare all properties for maximum compatibility */
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                color: white;
+                padding: 6rem 0;
+            }
+        }
+
+        /* Rest of original CSS remains unchanged */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
         }
 
         .navbar {
