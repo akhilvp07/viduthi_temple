@@ -54,6 +54,18 @@
             border-top-left-radius:var(--bs-card-border-radius); /* Matches the card's border radius */
             border-top-right-radius:var(--bs-card-border-radius); /* Matches the card's border radius */
         }
+        /* Dim the event card images by default */
+        .card-img-top {
+            filter: brightness(50%);
+            transition: filter 0.3s ease-in-out;
+        }
+
+        /* Restore brightness on hover or focus */
+        .card:hover .card-img-top,
+        .card:focus-within .card-img-top {
+            filter: brightness(75%);
+        }
+
     </style>
 </head>
 <body>
@@ -121,9 +133,9 @@
                             alt="Special Pooja Ceremony">
                     </picture>
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Samooha Ponkala</strong></h5>
+                        <h5 class="card-title"><strong>Samooha Pongala</strong></h5>
                         <p class="card-text">
-                            Experience the divine blessings of the Samooha Ponkala, dedicated to Lord Ulakudaya Perumal, as
+                            Experience the divine blessings of the Samooha Pongala, dedicated to Lord Ulakudaya Perumal, as
                             part
                             of
                             the Pada Maholsavam.
