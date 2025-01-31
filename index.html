@@ -80,7 +80,9 @@
         }
 
         .carousel-item img {
-            max-height: 500px;
+            width: 100%; /* Ensures responsiveness */
+            height: auto; /* Maintains aspect ratio */
+            aspect-ratio: 16/9; /* Prevents reflow */
             object-fit: cover;
         }
 
