@@ -33,10 +33,6 @@
     <!-- Cache-busted CSS -->
     <link href="static/css/style.css?v=1.0.2" rel="stylesheet">
     <style>
-        .row {
-            display: block !important;
-        }
-
         /* Fallback for WebP support using @supports */
         .header-background {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.png?v=1.0.2');
@@ -49,6 +45,14 @@
             .header-background {
                 background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('static/images/header/temple-header.webp?v=1.0.2');
             }
+        }
+        /* For image sizing in event cards */
+        .fixed-size-image {
+            width: 100%; /* Ensures the image fits the card width */
+            height: 300px; /* Fixed height for all images */
+            object-fit: cover; /* Maintains aspect ratio and crops excess */
+            border-top-left-radius:var(--bs-card-border-radius); /* Matches the card's border radius */
+            border-top-right-radius:var(--bs-card-border-radius); /* Matches the card's border radius */
         }
     </style>
 </head>
@@ -87,36 +91,41 @@
     <!-- Events Section -->
     <section class="container py-5">
         <h2 class="text-center mb-4" data-aos="fade-up">Upcoming Events</h2>
-        <div class="row">
-        <div class="col-md-6 mb-4" data-aos="fade-up">
-            <div class="card">
-                <picture>
-                    <source srcset="static/images/event/festival.webp" type="image/webp">
-                    <img src="static/images/event/festival.webp" class="card-img-top fixed-size-image" alt="Annual Temple Festival">
+        <div class="row justify-content-center">
+            <div class="col-md-8 mb-4" data-aos="fade-up">
+                <div class="card">
+                    <picture>
+                        <source srcset="static/images/event/festival.webp" type="image/webp">
+                        <img src="static/images/event/festival.webp" class="card-img-top fixed-size-image"
+                            alt="Annual Temple Festival">
                     </picture>
                     <div class="card-body">
-                    <h5 class="card-title"><strong>Pada Maholsavam</strong></h5>
-                    <p class="card-text">
-                        13th anniversary of the consecration and Pada Maholsavam of the ancient and renowned Viduthi
-                        Ulakudaya Perumal Temple. This festival will feature stunning lighting decorations and a vibrant
-                        procession
-                        with diverse art forms and musical performances.
-                    </p>
-                    <p class="card-text"><strong>Date:</strong> April 02 2025 to April 11 2025</p>
+                        <h5 class="card-title"><strong>Pada Maholsavam</strong></h5>
+                        <p class="card-text">
+                            13th anniversary of the consecration and Pada Maholsavam of the ancient and renowned Viduthi
+                            Ulakudaya Perumal Temple. This festival will feature stunning lighting decorations and a vibrant
+                            procession
+                            with diverse art forms and musical performances.
+                        </p>
+                        <p class="card-text"><strong>Date:</strong> April 02 2025 to April 11 2025</p>
                     </div>
-                    </div>
-                    </div>
+                </div>
             </div>
-            <div class="col-md-6 mb-4" data-aos="fade-up">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 mb-4" data-aos="fade-up">
                 <div class="card">
                     <picture>
                         <source srcset="static/images/event/pongala.webp" type="image/webp">
-                        <img src="static/images/event/pongala.webp" class="card-img-top fixed-size-image" alt="Special Pooja Ceremony">
+                        <img src="static/images/event/pongala.webp" class="card-img-top fixed-size-image"
+                            alt="Special Pooja Ceremony">
                     </picture>
                     <div class="card-body">
                         <h5 class="card-title"><strong>Samooha Ponkala</strong></h5>
                         <p class="card-text">
-                            Experience the divine blessings of the Samooha Ponkala, dedicated to Lord Ulakudaya Perumal, as part of
+                            Experience the divine blessings of the Samooha Ponkala, dedicated to Lord Ulakudaya Perumal, as
+                            part
+                            of
                             the Pada Maholsavam.
                         </p>
                         <p class="card-text"><strong>Date:</strong> April 06, 2025</p>

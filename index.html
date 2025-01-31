@@ -80,7 +80,9 @@
         }
 
         .carousel-item img {
-            max-height: 500px;
+            width: 100%; /* Ensures responsiveness */
+            height: auto; /* Maintains aspect ratio */
+            aspect-ratio: 16/9; /* Prevents reflow */
             object-fit: cover;
         }
 
@@ -100,7 +102,8 @@
         }
     </style>
     <!-- Preload Header Image for Faster Loading -->
-    <link rel="preload" href="static/images/header/temple-header.webp?v=1.0.2" as="image">
+    <link rel="preload" fetchpriority="high" href="static/images/header/temple-header.webp?v=1.0.2" as="image">
+    <link rel="preload" fetchpriority="high" href="static/images/image_01.webp?v=1.0.2" as="image">
 </head>
 <body>
     <!-- Navigation -->
@@ -205,7 +208,9 @@
             img.src = `${imagesPath}${filename}?${version}`;
             img.classList.add("d-block", "w-100");
             img.alt = `Temple image ${index + 1}`;
-            img.loading = "lazy";
+            if (index !== 0) {
+                img.loading = "lazy";
+            }
             picture.appendChild(img);
 
             carouselItem.appendChild(picture);
