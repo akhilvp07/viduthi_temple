@@ -173,7 +173,10 @@ footer a:hover {
     font-family: cursive; /* Use a generic cursive font */
     font-style: italic; /* Makes the font italic */
 }
-
+.display-1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
 .contact-divider {
     border-left: 2px solid #ccc;
     height: 100%;
